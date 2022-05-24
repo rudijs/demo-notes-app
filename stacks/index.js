@@ -1,5 +1,20 @@
-import StorageStack from "./StorageStack"
+import { StorageStack } from "./StorageStack"
+import { ApiStack } from "./ApiStack"
+
+// export default function main(app) {
+//   new StorageStack(app, "storage")
+// }
 
 export default function main(app) {
-  new StorageStack(app, "storage")
+  app.setDefaultFunctionProps({
+    runtime: "nodejs14.x",
+    srcPath: "src/backend",
+    bundle: {
+      format: "esm",
+    },
+  })
+
+  if (!["prod", "stage"].includes(app.stage)) app.setDefaultRemovalPolicy("destroy")
+
+  app.stack(StorageStack).stack(ApiStack)
 }
