@@ -14,7 +14,7 @@ export default function main(app) {
     },
   })
 
-  if (!["prod", "stage"].includes(app.stage)) app.setDefaultRemovalPolicy("destroy")
+  // if (!["prod", "stage"].includes(app.stage)) app.setDefaultRemovalPolicy("destroy")
 
   app.stack(StorageStack).stack(ApiStack)
 }

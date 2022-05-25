@@ -30,8 +30,8 @@ export function StorageStack(ctx) {
   // Create the DynamoDB table
   const table = new sst.Table(ctx.stack, "Notes", {
     fields: {
-      userId: sst.TableFieldType.STRING,
-      noteId: sst.TableFieldType.STRING,
+      userId: "string",
+      noteId: "string",
     },
     primaryIndex: { partitionKey: "userId", sortKey: "noteId" },
   })
