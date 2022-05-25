@@ -10,8 +10,7 @@ export default function main(app) {
     },
   })
 
-  // waiting for an update to fix tihs feature
-  // if (!["prod", "stage"].includes(app.stage)) app.setDefaultRemovalPolicy("destroy")
+  if (!["prod", "stage"].includes(app.stage)) app.setDefaultRemovalPolicy("destroy")
 
   app.stack(StorageStack).stack(ApiStack)
 }
