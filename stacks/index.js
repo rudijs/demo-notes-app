@@ -1,10 +1,6 @@
 import { StorageStack } from "./StorageStack"
 import { ApiStack } from "./ApiStack"
 
-// export default function main(app) {
-//   new StorageStack(app, "storage")
-// }
-
 export default function main(app) {
   app.setDefaultFunctionProps({
     runtime: "nodejs14.x",
@@ -14,6 +10,7 @@ export default function main(app) {
     },
   })
 
+  // waiting for an update to fix tihs feature
   // if (!["prod", "stage"].includes(app.stage)) app.setDefaultRemovalPolicy("destroy")
 
   app.stack(StorageStack).stack(ApiStack)
